@@ -1,0 +1,199 @@
+Crop Name,Metal Name,Symbol,Bioaccumulation Factor
+Spinach,Lead,Pb,0.08
+Spinach,Cadmium,Cd,0.85
+Spinach,Mercury,Hg,0.04
+Spinach,Arsenic,As,0.12
+Spinach,Iron,Fe,0.02
+Spinach,Copper,Cu,0.35
+Spinach,Zinc,Zn,0.72
+Spinach,Chromium,Cr,0.06
+Spinach,Nickel,Ni,0.40
+Spinach,Manganese,Mn,0.25
+Spinach,Cobalt,Co,0.10
+Lettuce,Lead,Pb,0.07
+Lettuce,Cadmium,Cd,0.80
+Lettuce,Mercury,Hg,0.03
+Lettuce,Arsenic,As,0.10
+Lettuce,Iron,Fe,0.02
+Lettuce,Copper,Cu,0.32
+Lettuce,Zinc,Zn,0.68
+Lettuce,Chromium,Cr,0.05
+Lettuce,Nickel,Ni,0.38
+Lettuce,Manganese,Mn,0.22
+Lettuce,Cobalt,Co,0.09
+Cabbage,Lead,Pb,0.05
+Cabbage,Cadmium,Cd,0.62
+Cabbage,Mercury,Hg,0.02
+Cabbage,Arsenic,As,0.08
+Cabbage,Iron,Fe,0.015
+Cabbage,Copper,Cu,0.25
+Cabbage,Zinc,Zn,0.55
+Cabbage,Chromium,Cr,0.04
+Cabbage,Nickel,Ni,0.28
+Cabbage,Manganese,Mn,0.18
+Cabbage,Cobalt,Co,0.07
+Cauliflower,Lead,Pb,0.04
+Cauliflower,Cadmium,Cd,0.55
+Cauliflower,Mercury,Hg,0.02
+Cauliflower,Arsenic,As,0.07
+Cauliflower,Iron,Fe,0.012
+Cauliflower,Copper,Cu,0.22
+Cauliflower,Zinc,Zn,0.50
+Cauliflower,Chromium,Cr,0.035
+Cauliflower,Nickel,Ni,0.25
+Cauliflower,Manganese,Mn,0.16
+Cauliflower,Cobalt,Co,0.06
+Wheat,Lead,Pb,0.015
+Wheat,Cadmium,Cd,0.15
+Wheat,Mercury,Hg,0.005
+Wheat,Arsenic,As,0.03
+Wheat,Iron,Fe,0.008
+Wheat,Copper,Cu,0.12
+Wheat,Zinc,Zn,0.28
+Wheat,Chromium,Cr,0.01
+Wheat,Nickel,Ni,0.08
+Wheat,Manganese,Mn,0.10
+Wheat,Cobalt,Co,0.02
+Rice,Lead,Pb,0.02
+Rice,Cadmium,Cd,0.22
+Rice,Mercury,Hg,0.01
+Rice,Arsenic,As,0.18
+Rice,Iron,Fe,0.025
+Rice,Copper,Cu,0.15
+Rice,Zinc,Zn,0.32
+Rice,Chromium,Cr,0.015
+Rice,Nickel,Ni,0.10
+Rice,Manganese,Mn,0.15
+Rice,Cobalt,Co,0.03
+Corn,Lead,Pb,0.012
+Corn,Cadmium,Cd,0.12
+Corn,Mercury,Hg,0.004
+Corn,Arsenic,As,0.025
+Corn,Iron,Fe,0.006
+Corn,Copper,Cu,0.10
+Corn,Zinc,Zn,0.22
+Corn,Chromium,Cr,0.008
+Corn,Nickel,Ni,0.06
+Corn,Manganese,Mn,0.08
+Corn,Cobalt,Co,0.015
+Maize,Lead,Pb,0.012
+Maize,Cadmium,Cd,0.12
+Maize,Mercury,Hg,0.004
+Maize,Arsenic,As,0.025
+Maize,Iron,Fe,0.006
+Maize,Copper,Cu,0.10
+Maize,Zinc,Zn,0.22
+Maize,Chromium,Cr,0.008
+Maize,Nickel,Ni,0.06
+Maize,Manganese,Mn,0.08
+Maize,Cobalt,Co,0.015
+Potato,Lead,Pb,0.02
+Potato,Cadmium,Cd,0.25
+Potato,Mercury,Hg,0.006
+Potato,Arsenic,As,0.04
+Potato,Iron,Fe,0.01
+Potato,Copper,Cu,0.14
+Potato,Zinc,Zn,0.30
+Potato,Chromium,Cr,0.012
+Potato,Nickel,Ni,0.09
+Potato,Manganese,Mn,0.12
+Potato,Cobalt,Co,0.025
+Tomato,Lead,Pb,0.025
+Tomato,Cadmium,Cd,0.30
+Tomato,Mercury,Hg,0.008
+Tomato,Arsenic,As,0.045
+Tomato,Iron,Fe,0.012
+Tomato,Copper,Cu,0.18
+Tomato,Zinc,Zn,0.35
+Tomato,Chromium,Cr,0.015
+Tomato,Nickel,Ni,0.12
+Tomato,Manganese,Mn,0.14
+Tomato,Cobalt,Co,0.03
+Onion,Lead,Pb,0.03
+Onion,Cadmium,Cd,0.35
+Onion,Mercury,Hg,0.01
+Onion,Arsenic,As,0.05
+Onion,Iron,Fe,0.015
+Onion,Copper,Cu,0.20
+Onion,Zinc,Zn,0.40
+Onion,Chromium,Cr,0.02
+Onion,Nickel,Ni,0.15
+Onion,Manganese,Mn,0.16
+Onion,Cobalt,Co,0.035
+Carrot,Lead,Pb,0.04
+Carrot,Cadmium,Cd,0.42
+Carrot,Mercury,Hg,0.012
+Carrot,Arsenic,As,0.06
+Carrot,Iron,Fe,0.018
+Carrot,Copper,Cu,0.22
+Carrot,Zinc,Zn,0.45
+Carrot,Chromium,Cr,0.025
+Carrot,Nickel,Ni,0.18
+Carrot,Manganese,Mn,0.18
+Carrot,Cobalt,Co,0.04
+Radish,Lead,Pb,0.045
+Radish,Cadmium,Cd,0.48
+Radish,Mercury,Hg,0.015
+Radish,Arsenic,As,0.07
+Radish,Iron,Fe,0.02
+Radish,Copper,Cu,0.25
+Radish,Zinc,Zn,0.48
+Radish,Chromium,Cr,0.03
+Radish,Nickel,Ni,0.20
+Radish,Manganese,Mn,0.20
+Radish,Cobalt,Co,0.045
+Sweet Potato,Lead,Pb,0.025
+Sweet Potato,Cadmium,Cd,0.28
+Sweet Potato,Mercury,Hg,0.008
+Sweet Potato,Arsenic,As,0.045
+Sweet Potato,Iron,Fe,0.012
+Sweet Potato,Copper,Cu,0.15
+Sweet Potato,Zinc,Zn,0.32
+Sweet Potato,Chromium,Cr,0.015
+Sweet Potato,Nickel,Ni,0.10
+Sweet Potato,Manganese,Mn,0.13
+Sweet Potato,Cobalt,Co,0.03
+Cucumber,Lead,Pb,0.02
+Cucumber,Cadmium,Cd,0.28
+Cucumber,Mercury,Hg,0.007
+Cucumber,Arsenic,As,0.04
+Cucumber,Iron,Fe,0.01
+Cucumber,Copper,Cu,0.16
+Cucumber,Zinc,Zn,0.32
+Cucumber,Chromium,Cr,0.012
+Cucumber,Nickel,Ni,0.10
+Cucumber,Manganese,Mn,0.12
+Cucumber,Cobalt,Co,0.025
+Green Beans,Lead,Pb,0.018
+Green Beans,Cadmium,Cd,0.22
+Green Beans,Mercury,Hg,0.006
+Green Beans,Arsenic,As,0.035
+Green Beans,Iron,Fe,0.009
+Green Beans,Copper,Cu,0.14
+Green Beans,Zinc,Zn,0.28
+Green Beans,Chromium,Cr,0.01
+Green Beans,Nickel,Ni,0.08
+Green Beans,Manganese,Mn,0.10
+Green Beans,Cobalt,Co,0.02
+Pumpkin,Lead,Pb,0.022
+Pumpkin,Cadmium,Cd,0.26
+Pumpkin,Mercury,Hg,0.007
+Pumpkin,Arsenic,As,0.04
+Pumpkin,Iron,Fe,0.011
+Pumpkin,Copper,Cu,0.16
+Pumpkin,Zinc,Zn,0.30
+Pumpkin,Chromium,Cr,0.012
+Pumpkin,Nickel,Ni,0.09
+Pumpkin,Manganese,Mn,0.12
+Pumpkin,Cobalt,Co,0.025
+Brinjal,Lead,Pb,0.025
+Brinjal,Cadmium,Cd,0.32
+Brinjal,Mercury,Hg,0.008
+Brinjal,Arsenic,As,0.048
+Brinjal,Iron,Fe,0.013
+Brinjal,Copper,Cu,0.19
+Brinjal,Zinc,Zn,0.36
+Brinjal,Chromium,Cr,0.016
+Brinjal,Nickel,Ni,0.13
+Brinjal,Manganese,Mn,0.15
+Brinjal,Cobalt,Co,0.03

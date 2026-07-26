@@ -1,0 +1,6 @@
+lower_limit,upper_limit,label,interpretation
+0,0.25,Excellent,Heavy metal concentrations are well below permissible limits and crops are considered very safe for consumption.
+0.25,0.50,Good,Food is generally safe with only minor contamination concerns.
+0.50,0.75,Moderate,Food quality is acceptable but continuous monitoring is recommended.
+0.75,1.00,Poor,Food is approaching the permissible safety limit and consumption should be monitored.
+1.00,999999,Unsafe,Heavy metal concentration exceeds WHO permissible limits and food is considered unsafe.
