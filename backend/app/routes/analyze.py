@@ -9,6 +9,9 @@ from app.schemas.response import AnalyzeResponse
 from app.ai.prompt_builder import build_prompt
 from app.ai.gemini_service import get_ai_response
 from app.services.charts_builder import build_charts
+from fastapi.responses import Response
+from fastapi import Body
+from app.services.pdf_generator import generate_pdf
 
 router = APIRouter()
 
@@ -84,10 +87,28 @@ def analyze_soil(request: AssessmentRequest):
 
     except Exception as e:
 
-        raise HTTPException(
-        status_code=500,
-        detail=f"AI Report Generation Failed : {str(e)}"
-    )
+        print("Gemini unavailable:", e)
+
+        final_report["assessment_summary"] = (
+            "The assessment was successfully completed using the analytical "
+            "engine. AI-generated interpretation is temporarily unavailable."
+        )
+
+        final_report["recommendations"] = [
+
+            "Monitor heavy metal concentrations regularly.",
+
+            "Maintain proper soil pH and organic matter.",
+
+            "Avoid cultivation if contamination exceeds permissible limits.",
+
+            "Follow recommended remediation techniques.",
+            
+        ]
+
+        for item in final_report["index_table"]:
+
+            item["description"] = ""
         
     # --------------------------------------------------
     # Charts
@@ -115,3 +136,18 @@ def analyze_soil(request: AssessmentRequest):
         
         
     return final_report
+
+
+@router.post("/report")
+def download_report(data: dict = Body(...)):
+
+    pdf = generate_pdf(data)
+
+    return Response(
+        content=pdf,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition":
+            "attachment; filename=Soil_Assessment_Report.pdf"
+        },
+    )
