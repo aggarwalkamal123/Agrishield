@@ -63,9 +63,12 @@ export default function MetalContributionChart({ data }: Props) {
                             innerRadius={90}
                             outerRadius={150}
                             paddingAngle={3}
-                            label={({ metal, percentage }) =>
-                                `${metal} (${percentage.toFixed(1)}%)`
-                            }
+                            label={({ payload }) => {
+                                const metal = payload?.metal ?? "";
+                                const percentage = Number(payload?.percentage ?? 0);
+
+                                return `${metal} (${percentage.toFixed(1)}%)`;
+                            }}
                         >
 
                             {data.map((_, index) => (
@@ -80,8 +83,8 @@ export default function MetalContributionChart({ data }: Props) {
                         </Pie>
 
                         <Tooltip
-                            formatter={(value: number) => [
-                                `${value.toFixed(2)} %`,
+                            formatter={(value) => [
+                                `${Number(value ?? 0).toFixed(2)} %`,
                                 "Contribution",
                             ]}
                         />

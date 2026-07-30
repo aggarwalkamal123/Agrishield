@@ -74,9 +74,9 @@ export default function PollutionIndicesChart({ data }: Props) {
                         />
 
                         <Tooltip
-                            formatter={(value: number, name, props: any) => [
-                                value,
-                                props.payload.label,
+                            formatter={(value, name, props) => [
+                                value ?? 0,
+                                props?.payload?.label ?? "",
                             ]}
                         />
 
