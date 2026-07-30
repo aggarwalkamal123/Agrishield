@@ -1,7 +1,11 @@
+from pathlib import Path
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "sqlite:///agrishield.db"
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+DATABASE_URL = f"sqlite:///{BASE_DIR / 'agrishield.db'}"
 
 engine = create_engine(
     DATABASE_URL,
