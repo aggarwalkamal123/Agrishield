@@ -1,66 +1,106 @@
+<div align="center">
+
+<img src="frontend/public/logos/agrishield_logo.png" alt="AgriShield Logo" width="420"/>
+
 # 🌱 AgriShield
 
 ### AI-Powered Heavy Metal Risk Assessment & Decision Support System for Sustainable Agriculture
 
-> Developed under **AICTE IDEA Lab Internship**  
-> USICT, GGSIPU
+Developed under the **AICTE IDEA Lab Internship**  
+**University School of Information, Communication & Technology (USICT)**  
+**Guru Gobind Singh Indraprastha University (GGSIPU), Delhi**
+
+</div>
 
 ---
 
-## 📖 About
+## 📖 Overview
 
-AgriShield is a web-based decision support system that helps assess heavy metal contamination in agricultural soil using standard pollution indices, agricultural parameters, and machine learning. The platform provides pollution assessment, food safety analysis, risk interpretation, and crop-specific recommendations through a simple and interactive interface.
+AgriShield is an AI-powered web platform for assessing heavy metal contamination in agricultural soil. It combines internationally accepted pollution indices, bioavailability estimation, food safety evaluation, human health risk assessment, AI-generated recommendations, and interactive visualizations into a single intelligent decision support system.
+
+The platform is designed to assist **farmers, researchers, environmental scientists, students, and policymakers** in making informed and sustainable agricultural decisions.
 
 ---
 
 ## ✨ Features
 
-- 📊 Heavy Metal Risk Assessment
-- 🧮 Heavy Metal Indices Calculator
-- 🌾 Food Safety & Risk Analysis
-- 🤖 Machine Learning Integration
-- 📈 Interactive Dashboard & Charts
-- 📚 Knowledge Hub
-- 📄 Documentation Portal
+- 🌍 Heavy Metal Contamination Assessment
+- 📊 Scientific Pollution Indices (CF, Igeo, EF, Er, PLI, NPI & PERI)
+- 🌱 Bioavailability Analysis
+- 🍅 Food Safety Evaluation
+- ❤️ Human Health Risk Assessment (Adult & Child)
+- 🤖 AI-Powered Assessment Summary & Recommendations (Google Gemini)
+- 📈 Interactive Dashboard with Charts
+- 📄 Professional PDF Report Generation
+- 📚 Knowledge Hub with Educational Articles
+- 📖 Comprehensive Technical Documentation
+- 🌙 Fully Responsive Light/Dark Theme
 
 ---
 
 ## 🛠 Tech Stack
 
-**Frontend**
+### Frontend
+
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
+- React Markdown
+- Recharts
 
-**Backend**
+### Backend
+
 - FastAPI
 - Python
+- Pydantic
 
-**Database**
+### Database
+
 - SQLite
 
-**Machine Learning**
-- Scikit-learn
+### AI & Data Processing
+
+- Google Gemini API
 - Pandas
 - NumPy
+- Scikit-learn
 
 ---
 
 ## 🚀 Getting Started
 
+### Clone Repository
+
+```bash
+git clone https://github.com/aggarwalkamal123/Agrishield.git
+
+cd Agrishield
+```
+
 ### Frontend
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
+
+Frontend:
+
+```
+http://localhost:3000
+```
+
+---
 
 ### Backend
 
 ```bash
 cd backend
+
 python -m venv venv
 
 venv\Scripts\activate
@@ -70,12 +110,51 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Frontend: `http://localhost:3000`
+Backend:
 
-Backend API: `http://127.0.0.1:8000`
-
-API Docs: `http://127.0.0.1:8000/docs`
+```
+http://127.0.0.1:8000
+```
 
 ---
 
-> **AgriShield** aims to simplify heavy metal risk assessment by combining environmental indices, agricultural knowledge, and AI into a single decision support platform.
+### API Documentation
+
+Swagger UI
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 🎯 Core Modules
+
+- Heavy Metal Assessment
+- Pollution Indices Calculation
+- Bioavailability Estimation
+- Food Safety Analysis
+- Human Health Risk Assessment
+- AI Recommendation Engine
+- Interactive Dashboard
+- Knowledge Hub
+- Documentation Portal
+- PDF Report Generator
+
+---
+
+## 🌍 Vision
+
+AgriShield bridges **Artificial Intelligence**, **Environmental Science**, and **Sustainable Agriculture** by providing an intelligent, reliable, and user-friendly platform for heavy metal contamination assessment and informed agricultural decision-making.
+
+---
+
+<div align="center">
+
+### 🌱 AgriShield
+
+**AI for Sustainable Agriculture**
+
+Made with ❤️ using **Next.js**, **FastAPI**, and **Google Gemini AI**
+
+</div>
