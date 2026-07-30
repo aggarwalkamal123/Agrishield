@@ -2,6 +2,8 @@
 
 import { X } from "lucide-react";
 import { Article } from "@/lib/articles";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Props {
 
@@ -101,9 +103,31 @@ export default function ArticleModal({
 
                     {/* Article */}
 
-                    <article className="mt-10 whitespace-pre-line leading-9 text-gray-700 dark:text-gray-300">
+                    <article className="mt-10">
 
-                        {article.content}
+                        <div
+                            className="
+        prose
+        prose-lg
+        max-w-none
+
+        prose-headings:font-bold
+        prose-headings:text-slate-900
+        prose-h1:text-5xl
+        prose-h2:text-3xl
+        prose-h3:text-2xl
+
+        prose-p:text-gray-700
+        prose-strong:text-slate-900
+        prose-a:text-green-600
+
+        dark:prose-invert
+    "
+                        >
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                {article.content}
+                            </ReactMarkdown>
+                        </div>
 
                     </article>
 

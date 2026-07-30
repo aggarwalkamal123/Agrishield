@@ -27,11 +27,6 @@ export default function EnvironmentalInputs({
                     Environmental Conditions
                 </h3>
 
-                <p className="mt-2 text-gray-600 dark:text-gray-400 dark:text-gray-400">
-                    These values are collected only for display in the final dashboard.
-                    They are <strong>not used</strong> in the heavy metal assessment calculations.
-                </p>
-
             </div>
 
             {/* Input Fields */}

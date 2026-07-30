@@ -1,6 +1,6 @@
 const tech = [
 
-    ["Frontend", "Next.js 15, React, Tailwind CSS, TypeScript"],
+    ["Frontend", "Next.js 16, React, Tailwind CSS, TypeScript"],
 
     ["Backend", "FastAPI (Python)"],
 

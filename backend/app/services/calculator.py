@@ -243,11 +243,12 @@ def calculate_all_metal_indices(
     if child is None:
         raise Exception("Child exposure parameters missing.")
 
-    if "Fe" not in heavy_metals:
-        raise Exception("Fe concentration required.")
-
-    fe_soil = heavy_metals["Fe"]
     fe_background = get_background("Fe")
+
+    fe_soil = heavy_metals.get("Fe", fe_background)
+
+    if fe_background is None or fe_background == 0:
+        raise Exception("Background Fe value not found.")
 
     metal_results = []
 

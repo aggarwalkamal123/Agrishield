@@ -67,7 +67,7 @@ export const teamMembers: TeamMember[] = [
         role: "Database Engineer",
         image: "/team/sahil.jpg",
         contribution: "Database Design • SQL Integration",
-        github: "#",
+        github: "https://github.com/GargSahil01dec",
         linkedin: "https://www.linkedin.com/in/sahil-garg-/",
     },
 

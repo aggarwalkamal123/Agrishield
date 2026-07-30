@@ -27,6 +27,9 @@ const metals = [
     "Ni",
     "Pb",
     "Zn",
+    "Fe",
+    "Mn",
+    "Co"
 ];
 
 export default function HeavyMetalInput({

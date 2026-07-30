@@ -103,7 +103,7 @@ export default function Footer() {
                                 API Documentation
                             </Link>
 
-                            <Link href="/documentation">
+                            <Link href="/knowledge-hub">
                                 FAQs
                             </Link>
 

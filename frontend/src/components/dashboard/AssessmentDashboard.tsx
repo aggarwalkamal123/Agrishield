@@ -4,13 +4,13 @@ import { Download } from "lucide-react";
 import { downloadPDF } from "@/lib/api";
 import AssessmentSummary from "./AssessmentSummary";
 import SoilPropertiesCard from "./SoilPropertiesCard";
+import EnvironmentalConditionsCard from "./EnvironmentalConditionsCard";
 import BioavailabilityCard from "./BioavailabilityCard";
 import OverallCards from "./OverallCards";
 import HeavyMetalTable from "./HeavyMetalTable";
 import IndexTable from "./IndexTable";
 import ChartsSection from "./charts/ChartsSection";
 import Recommendations from "./Recommendations";
-
 
 interface Props {
     data: any;
@@ -46,6 +46,11 @@ export default function AssessmentDashboard({ data }: Props) {
 
             <SoilPropertiesCard
                 data={data.soil_properties}
+            />
+
+            <EnvironmentalConditionsCard
+                temperature={data.temperature}
+                moisture={data.moisture}
             />
 
             <BioavailabilityCard

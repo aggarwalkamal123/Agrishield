@@ -246,7 +246,7 @@ export default function ProjectLead() {
                                 mt-4
                                 text-base
                                 leading-8
-                                text-gray-700 dark:text-gray-300
+                                text-gray-700 dark:text-gray-500
                             "
                         >
                             Led the complete development of AgriShield,
