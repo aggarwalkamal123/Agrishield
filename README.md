@@ -6,10 +6,6 @@
 
 ### AI-Powered Heavy Metal Risk Assessment & Decision Support System for Sustainable Agriculture
 
-Developed under the **AICTE IDEA Lab Internship**  
-**University School of Information, Communication & Technology (USICT)**  
-**Guru Gobind Singh Indraprastha University (GGSIPU), Delhi**
-
 </div>
 
 ---
