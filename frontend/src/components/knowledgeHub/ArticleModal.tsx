@@ -107,22 +107,19 @@ export default function ArticleModal({
 
                         <div
                             className="
-        prose
-        prose-lg
-        max-w-none
+                                prose
+                                prose-lg
+                                max-w-none
 
-        prose-headings:font-bold
-        prose-headings:text-slate-900
-        prose-h1:text-5xl
-        prose-h2:text-3xl
-        prose-h3:text-2xl
+                                prose-headings:font-bold
+                                prose-h1:text-5xl
+                                prose-h2:text-3xl
+                                prose-h3:text-2xl
 
-        prose-p:text-gray-700
-        prose-strong:text-slate-900
-        prose-a:text-green-600
+                                prose-a:text-green-600
 
-        dark:prose-invert
-    "
+                                dark:prose-invert
+                            "
                         >
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                 {article.content}
