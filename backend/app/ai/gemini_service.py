@@ -17,7 +17,16 @@ model = genai.GenerativeModel("gemini-3.5-flash")
 
 def get_ai_response(prompt):
 
-    response = model.generate_content(prompt)
+    response = model.generate_content(
+    prompt,
+    generation_config=genai.GenerationConfig(
+        temperature=0.2,
+        top_p=0.8,
+        top_k=20,
+        max_output_tokens=850,
+        candidate_count=1,
+    ),
+    )
 
     text = response.text.strip()
 

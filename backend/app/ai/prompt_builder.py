@@ -1,74 +1,122 @@
-def build_prompt(report: dict) -> str:
+def summarize_metals(metal_table):
+
+    lines = []
+
+    for m in metal_table:
+
+        # -----------------------------
+        # Ecological Risk Category
+        # -----------------------------
+
+        er = m["er"]
+
+        if er < 40:
+            eco = "Low"
+
+        elif er < 80:
+            eco = "Moderate"
+
+        elif er < 160:
+            eco = "High"
+
+        else:
+            eco = "Very High"
+
+        # -----------------------------
+        # Health Risk Category
+        # -----------------------------
+
+        hq = max(
+            m["adult_hq"],
+            m["child_hq"]
+        )
+
+        if hq < 1:
+            health = "Safe"
+
+        elif hq < 2:
+            health = "Moderate"
+
+        else:
+            health = "High"
+
+        lines.append(
+            f"""
+{m['metal']}
+Observed: {m['soil_concentration']:.2f} mg/kg
+WHO Limit: {m['who_limit']:.2f} mg/kg
+Status: {m['status']}
+Ecological Risk: {eco}
+Health Risk: {health}
+"""
+        )
+
+    return "\n".join(lines)
+
+
+def summarize_indices(index_table):
+
+    return "\n".join(
+      f"{i['index']}: {i['value']:.2f} ({i['label']})"
+      for i in index_table
+    )
+
+
+def build_prompt(report):
+
+    metal_summary = summarize_metals(
+        report["metal_table"]
+    )
+
+    index_summary = summarize_indices(
+        report["index_table"]
+    )
 
     return f"""
-You are an environmental scientist and agricultural consultant.
+You are an experienced environmental scientist and agricultural consultant.
 
-Your audience is NOT scientists.
+Your audience includes farmers, land owners, students, NGOs, government officers and the general public.
 
-Your audience includes:
-- Farmers
-- Land owners
-- Government officers
-- NGOs
-- Students
-- General public
+Write in simple English.
 
-Use SIMPLE English that anyone can understand.
+Rules:
 
-IMPORTANT RULES
+- Use short sentences.
+- Keep paragraphs short.
+- Avoid technical language unless necessary.
+- If a technical term is used, explain it simply.
+- Never mention formulas or calculations.
+- Do not exaggerate risks.
+- Be factual and practical.
+- Respond ONLY in valid JSON.
 
-1. Never use difficult scientific language unless absolutely necessary.
-
-2. If you use a technical term, explain it in simple words.
-
-Example:
-Instead of:
-"The Hazard Index exceeds the permissible threshold."
-
-Write:
-"The health risk is higher than the safe limit, which means long-term exposure may affect human health."
-
-3. Keep every sentence short.
-
-4. Never write paragraphs longer than 4-5 lines.
-
-5. Be factual.
-Never exaggerate.
-Never create unnecessary fear.
-
-6. Recommendations should be practical and actionable.
-
-7. Do NOT mention calculations or formulas.
-
-8. Respond ONLY in valid JSON.
-
-The JSON format MUST be:
+Output format:
 
 {{
   "summary": "...",
 
   "descriptions": {{
-      "PLI":"...",
-      "NPI":"...",
-      "PERI":"...",
-      "Adult HI":"...",
-      "Child HI":"...",
-      "Food Safety Index":"..."
-  }},
+    "PLI": "...",
+    "NPI": "...",
+    "PERI": "...",
+    "Adult HI": "...",
+    "Child HI": "...",
+    "Food Safety Index": "..."
+}},
 
-  "recommendations":[
-      "...",
-      "...",
-      "...",
-      "...",
-      "...",
-      "..."
-  ]
+"recommendations": [
+    "...",
+    "...",
+    "...",
+    "...",
+    "...",
+    "..."
+]
 }}
 
-----------------------------------------
+----------------------------------------------------
 ASSESSMENT DATA
-----------------------------------------
+----------------------------------------------------
 
 Crop:
 {report["crop"]}
@@ -97,42 +145,43 @@ Adult Health:
 Child Health:
 {report["overall_cards"]["child_health"]}
 
-Indices:
+Pollution Indices:
 
-{report["index_table"]}
+{index_summary}
 
-Heavy Metals:
+Heavy Metal Summary:
 
-{report["metal_table"]}
+{metal_summary}
 
-----------------------------------------
-OUTPUT REQUIREMENTS
-----------------------------------------
+----------------------------------------------------
+TASK
+----------------------------------------------------
 
 SUMMARY
-- Around 250-300 words.
-- Explain the overall condition in simple language.
-- Mention the main problems.
-- Mention if the soil is safe or risky.
-- Mention which metals are the main concern.
-- End with one positive or practical concluding sentence.
+- Around 200 words.
+- Explain the overall condition.
+- Mention whether the soil is safe or contaminated.
+- Mention the most concerning heavy metals.
+- Mention food safety.
+- Mention health risks for adults and children.
+- End with one practical concluding sentence.
 
 INDEX DESCRIPTIONS
-- Write ONLY 1-2 simple sentences.
-- Explain what the index result means.
-- Avoid technical words.
-- Explain whether the value is good, moderate or risky.
+- Write only 1-2 simple sentences for each index.
+- Explain what the result means.
+- Mention whether the value indicates low, moderate or high concern.
 
 RECOMMENDATIONS
 - Give exactly 6 recommendations.
-- Practical and easy to understand.
-- Start each recommendation with an action verb like:
-  - Use
-  - Avoid
-  - Apply
-  - Monitor
-  - Maintain
-  - Test
-- Recommendations should match the detected risks.
+- Make them practical.
+- Start each recommendation with an action verb such as:
+  Use,
+  Apply,
+  Monitor,
+  Avoid,
+  Maintain,
+  Test,
+  Improve.
 - Do not repeat the same advice.
+- Match recommendations to the detected risks.
 """
