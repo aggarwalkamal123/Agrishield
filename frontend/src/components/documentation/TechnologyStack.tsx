@@ -12,7 +12,7 @@ const tech = [
 
     ["PDF Reports", "ReportLab"],
 
-    ["Deployment", "Vercel and Render"],
+    ["Deployment", "Vercel & Render"],
 
 ];
 
@@ -22,29 +22,50 @@ export default function TechnologyStack() {
 
         <section
             id="technology"
-            className="space-y-8 scroll-mt-28"
+            className="space-y-6 scroll-mt-28"
         >
 
-            <h2 className="text-4xl font-black text-slate-900 dark:text-white">
+            <h2
+                className="
+                    text-2xl
+                    sm:text-3xl
+                    lg:text-4xl
+                    font-black
+                    text-slate-900
+                    dark:text-white
+                "
+            >
 
                 Technology Stack
 
             </h2>
 
-            <div className="overflow-hidden rounded-3xl border">
+            <div
+                className="
+                    overflow-x-auto
+                    rounded-3xl
+                    border
+                    border-gray-200
+                    dark:border-slate-700
+                "
+            >
 
-                <table className="w-full">
+                <table className="min-w-[650px] w-full">
 
                     <thead className="bg-green-700 text-white">
 
                         <tr>
 
-                            <th className="px-6 py-4 text-left">
+                            <th className="px-4 sm:px-6 py-4 text-left whitespace-nowrap">
+
                                 Component
+
                             </th>
 
-                            <th className="px-6 py-4 text-left">
+                            <th className="px-4 sm:px-6 py-4 text-left whitespace-nowrap">
+
                                 Technology
+
                             </th>
 
                         </tr>
@@ -57,16 +78,16 @@ export default function TechnologyStack() {
 
                             <tr
                                 key={name}
-                                className="border-t"
+                                className="border-t border-gray-200 dark:border-slate-700"
                             >
 
-                                <td className="px-6 py-5 font-semibold">
+                                <td className="px-4 sm:px-6 py-4 font-semibold whitespace-nowrap">
 
                                     {name}
 
                                 </td>
 
-                                <td className="px-6 py-5">
+                                <td className="px-4 sm:px-6 py-4">
 
                                     {value}
 

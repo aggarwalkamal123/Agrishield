@@ -3,11 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
 
     const pathname = usePathname();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const navItems = [
         { name: "Home", href: "/" },
@@ -32,19 +35,18 @@ export default function Navbar() {
                 backdrop-blur-xl
                 shadow-md
                 dark:shadow-black/30
-                transition-all
-                duration-300
             "
         >
 
-            <div className="mx-auto flex max-w-7xl items-center justify-between pl-5 pr-8 py-3">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8 py-3">
 
                 {/* Logo */}
 
                 <Link
                     href="/"
-                    className="-ml-[0.0001px] transition duration-300 hover:scale-105"
+                    className="transition duration-300 hover:scale-105"
                 >
+
                     <Image
                         src="/logos/agrishield_logo.png"
                         alt="AgriShield"
@@ -52,16 +54,18 @@ export default function Navbar() {
                         height={60}
                         priority
                         unoptimized
-                        className="h-20 w-auto object-contain"
+                        className="h-14 md:h-20 w-auto object-contain"
                     />
 
                 </Link>
 
-                {/* Navigation */}
+                {/* Right Side */}
 
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-3 md:gap-5">
 
-                    <nav className="hidden items-center gap-2 md:flex">
+                    {/* Desktop Navigation */}
+
+                    <nav className="hidden md:flex items-center gap-2">
 
                         {navItems.map((item) => {
 
@@ -77,7 +81,9 @@ export default function Navbar() {
                                         : "text-gray-700 dark:text-gray-300 hover:bg-green-100 dark:hover:bg-slate-800 hover:text-green-700 dark:hover:text-green-400"
                                         }`}
                                 >
+
                                     {item.name}
+
                                 </Link>
 
                             );
@@ -86,11 +92,62 @@ export default function Navbar() {
 
                     </nav>
 
+                    {/* Theme Toggle */}
+
                     <ThemeToggle />
+
+                    {/* Mobile Menu Button */}
+
+                    <button
+                        className="md:hidden rounded-lg p-2 hover:bg-green-100 dark:hover:bg-slate-800 transition"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+
+                        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+
+                    </button>
 
                 </div>
 
             </div>
+
+            {/* Mobile Menu */}
+
+            {menuOpen && (
+
+                <div className="md:hidden border-t border-green-100 dark:border-slate-700 bg-white dark:bg-[#0B1120]">
+
+                    <nav className="flex flex-col p-4 gap-2">
+
+                        {navItems.map((item) => {
+
+                            const active = pathname === item.href;
+
+                            return (
+
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className={`rounded-xl px-4 py-3 font-semibold transition ${active
+                                        ? "bg-green-600 text-white"
+                                        : "text-gray-700 dark:text-gray-300 hover:bg-green-100 dark:hover:bg-slate-800"
+                                        }`}
+                                >
+
+                                    {item.name}
+
+                                </Link>
+
+                            );
+
+                        })}
+
+                    </nav>
+
+                </div>
+
+            )}
 
         </header>
 
