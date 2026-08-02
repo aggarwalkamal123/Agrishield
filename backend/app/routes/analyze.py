@@ -7,7 +7,7 @@ from app.services.calculator import calculate_indices
 from app.services.decision_engine import build_decision_report
 from app.schemas.response import AnalyzeResponse
 from app.ai.prompt_builder import build_prompt
-from app.ai.gemini_service import get_ai_response
+from app.ai.ai_service import get_ai_response
 from app.services.charts_builder import build_charts
 from fastapi.responses import Response
 from fastapi import Body
@@ -108,7 +108,7 @@ def analyze_soil(request: AssessmentRequest):
 
         for item in final_report["index_table"]:
 
-            item["description"] = ""
+            item["description"] = "NA"
         
     # --------------------------------------------------
     # Charts
