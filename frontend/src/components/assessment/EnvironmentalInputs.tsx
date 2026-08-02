@@ -1,18 +1,27 @@
 "use client";
 
 interface EnvironmentalInputsProps {
+
     temperature: string;
     setTemperature: (value: string) => void;
 
     moisture: string;
     setMoisture: (value: string) => void;
+
+    error: Record<string, string>;
+
 }
 
 export default function EnvironmentalInputs({
+
     temperature,
     setTemperature,
+
     moisture,
     setMoisture,
+
+    error,
+
 }: EnvironmentalInputsProps) {
 
     return (
@@ -24,7 +33,9 @@ export default function EnvironmentalInputs({
             <div>
 
                 <h3 className="text-2xl font-bold text-green-700 dark:text-green-400">
+
                     Environmental Conditions
+
                 </h3>
 
             </div>
@@ -35,81 +46,129 @@ export default function EnvironmentalInputs({
 
                 {/* Temperature */}
 
-                <div>
+                <div data-field="temperature">
 
                     <label className="mb-2 block font-semibold">
+
                         Temperature (°C)
+                        <span className="ml-1 text-red-500">*</span>
+
                     </label>
 
                     <input
+
                         type="number"
+
                         step="0.1"
+
                         value={temperature}
-                        onChange={(e) => setTemperature(e.target.value)}
+
+                        onChange={(e) =>
+                            setTemperature(e.target.value)
+                        }
+
                         placeholder="Example: 28.5"
-                        className="
+
+                        className={`
                             w-full
                             rounded-xl
-                            border
-                            border-gray-300
-                            dark:border-slate-600
-                            bg-white dark:bg-slate-900
-                            dark:bg-slate-800
                             px-4
                             py-3
                             outline-none
                             transition
-                            focus:border-green-500
-                            focus:ring-2
-                            focus:ring-green-200
-                            dark:focus:ring-green-900
-                        "
+
+                            ${error.temperature
+                                ? "border-2 border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                : "border border-gray-300 dark:border-slate-600 focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
+                            }
+
+                            bg-white
+                            dark:bg-slate-800
+                        `}
+
                     />
 
                     <p className="mt-2 text-sm text-gray-500">
+
                         Ambient temperature during sample collection.
+
                     </p>
+
+                    {error.temperature && (
+
+                        <p className="mt-1 text-sm font-medium text-red-500">
+
+                            {error.temperature}
+
+                        </p>
+
+                    )}
 
                 </div>
 
                 {/* Moisture */}
 
-                <div>
+                <div data-field="moisture">
 
                     <label className="mb-2 block font-semibold">
+
                         Moisture (%)
+                        <span className="ml-1 text-red-500">*</span>
+
                     </label>
 
                     <input
+
                         type="number"
+
                         step="0.1"
+
                         min="0"
+
                         max="100"
+
                         value={moisture}
-                        onChange={(e) => setMoisture(e.target.value)}
+
+                        onChange={(e) =>
+                            setMoisture(e.target.value)
+                        }
+
                         placeholder="Example: 18.2"
-                        className="
+
+                        className={`
                             w-full
                             rounded-xl
-                            border
-                            border-gray-300
-                            dark:border-slate-600
-                            bg-white dark:bg-slate-900
-                            dark:bg-slate-800
                             px-4
                             py-3
                             outline-none
                             transition
-                            focus:border-green-500
-                            focus:ring-2
-                            focus:ring-green-200
-                            dark:focus:ring-green-900
-                        "
+
+                            ${error.moisture
+                                ? "border-2 border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                : "border border-gray-300 dark:border-slate-600 focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
+                            }
+
+                            bg-white
+                            dark:bg-slate-800
+                        `}
+
                     />
 
                     <p className="mt-2 text-sm text-gray-500">
+
                         Approximate soil moisture at the time of sampling.
+
                     </p>
+
+                    {error.moisture && (
+
+                        <p className="mt-1 text-sm font-medium text-red-500">
+
+                            {error.moisture}
+
+                        </p>
+
+                    )}
 
                 </div>
 

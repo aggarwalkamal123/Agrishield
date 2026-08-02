@@ -9,6 +9,8 @@ interface SoilParametersProps {
 
     soilTexture: string;
     setSoilTexture: (value: string) => void;
+
+    error: Record<string, string>;
 }
 
 export default function SoilParameters({
@@ -18,6 +20,7 @@ export default function SoilParameters({
     setOrganicMatter,
     soilTexture,
     setSoilTexture,
+    error,
 }: SoilParametersProps) {
 
     return (
@@ -40,10 +43,10 @@ export default function SoilParameters({
 
                 {/* Soil pH */}
 
-                <div>
+                <div data-field="soilPH">
 
                     <label className="mb-2 block font-semibold">
-                        Soil pH
+                        Soil pH <span className="text-red-500">*</span>
                     </label>
 
                     <input
@@ -54,37 +57,44 @@ export default function SoilParameters({
                         value={soilPH}
                         onChange={(e) => setSoilPH(e.target.value)}
                         placeholder="Example: 6.8"
-                        className="
+                        className={`
                             w-full
                             rounded-xl
                             border
-                            border-gray-300
-                            dark:border-slate-600
-                            bg-white dark:bg-slate-900
+                            bg-white
                             dark:bg-slate-800
                             px-4
                             py-3
                             outline-none
                             transition
-                            focus:border-green-500
-                            focus:ring-2
-                            focus:ring-green-200
-                            dark:focus:ring-green-900
-                        "
+                            ${error.soilPH
+                                ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200 dark:focus:ring-red-900"
+                                : "border-gray-300 dark:border-slate-600 focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
+                            }
+                        `}
                     />
 
-                    <p className="mt-2 text-sm text-gray-500">
-                        Valid range: 0 – 14
-                    </p>
+                    {error.soilPH && (
+                        <p className="mt-2 text-sm text-red-600">
+                            {error.soilPH}
+                        </p>
+                    )}
+
+                    {!error.soilPH && (
+                        <p className="mt-2 text-sm text-gray-500">
+                            Valid range: 0 – 14
+                        </p>
+                    )}
 
                 </div>
 
                 {/* Organic Matter */}
 
-                <div>
+                <div data-field="organicMatter">
 
                     <label className="mb-2 block font-semibold">
-                        Organic Matter (%)
+                        Organic Matter (%){" "}
+                        <span className="text-red-500">*</span>
                     </label>
 
                     <input
@@ -94,28 +104,34 @@ export default function SoilParameters({
                         value={organicMatter}
                         onChange={(e) => setOrganicMatter(e.target.value)}
                         placeholder="Example: 2.5"
-                        className="
+                        className={`
                             w-full
                             rounded-xl
                             border
-                            border-gray-300
-                            dark:border-slate-600
-                            bg-white dark:bg-slate-900
+                            bg-white
                             dark:bg-slate-800
                             px-4
                             py-3
                             outline-none
                             transition
-                            focus:border-green-500
-                            focus:ring-2
-                            focus:ring-green-200
-                            dark:focus:ring-green-900
-                        "
+                            ${error.organicMatter
+                                ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200 dark:focus:ring-red-900"
+                                : "border-gray-300 dark:border-slate-600 focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
+                            }
+                        `}
                     />
 
-                    <p className="mt-2 text-sm text-gray-500">
-                        Percentage of soil organic matter by weight.
-                    </p>
+                    {error.organicMatter && (
+                        <p className="mt-2 text-sm text-red-600">
+                            {error.organicMatter}
+                        </p>
+                    )}
+
+                    {!error.organicMatter && (
+                        <p className="mt-2 text-sm text-gray-500">
+                            Percentage of soil organic matter by weight.
+                        </p>
+                    )}
 
                 </div>
 
@@ -123,13 +139,21 @@ export default function SoilParameters({
 
             {/* Soil Texture */}
 
-            <div>
+            <div data-field="soilTexture">
 
                 <label className="mb-4 block font-semibold">
-                    Soil Texture
+                    Soil Texture <span className="text-red-500">*</span>
                 </label>
 
-                <div className="flex flex-wrap gap-6">
+                <div
+                    className={`
+                        flex flex-wrap gap-6 rounded-xl border p-4 transition
+                        ${error.soilTexture
+                            ? "border-red-500"
+                            : "border-transparent"
+                        }
+                    `}
+                >
 
                     {["Sand", "Silt", "Clay"].map((texture) => (
 
@@ -156,6 +180,12 @@ export default function SoilParameters({
                     ))}
 
                 </div>
+
+                {error.soilTexture && (
+                    <p className="mt-2 text-sm text-red-600">
+                        {error.soilTexture}
+                    </p>
+                )}
 
             </div>
 

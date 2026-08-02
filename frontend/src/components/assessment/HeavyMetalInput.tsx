@@ -16,6 +16,8 @@ interface HeavyMetalInputProps {
 
     loading: boolean;
     handleSubmit: () => void;
+
+    error: Record<string, string>;
 }
 
 const metals = [
@@ -42,6 +44,8 @@ export default function HeavyMetalInput({
 
     loading,
     handleSubmit,
+
+    error,
 
 }: HeavyMetalInputProps) {
 
@@ -100,6 +104,7 @@ export default function HeavyMetalInput({
 
                 <h3 className="text-2xl font-bold text-green-700 dark:text-green-400">
                     Heavy Metal Concentrations
+                    <span className="ml-1 text-red-500">*</span>
                 </h3>
 
                 <p className="mt-2 text-gray-600 dark:text-gray-400 dark:text-gray-400">
@@ -113,7 +118,22 @@ export default function HeavyMetalInput({
 
             {/* CSV Upload */}
 
-            <div className="rounded-3xl border-2 border-dashed border-green-400 bg-green-50 dark:bg-slate-800 dark:bg-slate-900 p-8">
+            <div
+                data-field="heavyMetals"
+                className={`
+
+                    rounded-3xl
+                    border-2
+                    border-dashed
+                    p-8
+
+                    ${error.heavyMetals
+                        ? "border-red-500 bg-red-50 dark:bg-red-950/20"
+                        : "border-green-400 bg-green-50 dark:bg-slate-900"
+                    }
+
+                `}
+            >
 
                 <div className="flex flex-col items-center text-center">
 
@@ -168,6 +188,16 @@ export default function HeavyMetalInput({
 
                 <span className="font-semibold text-gray-500">
 
+                    {error.heavyMetals && (
+
+                        <p className="text-center text-sm font-medium text-red-500">
+
+                            {error.heavyMetals}
+
+                        </p>
+
+                    )}
+
                     OR
 
                 </span>
@@ -187,6 +217,7 @@ export default function HeavyMetalInput({
                         <h4 className="text-xl font-bold">
 
                             Manual Entry
+                            <span className="ml-1 text-red-500">*</span>
 
                         </h4>
 
@@ -229,7 +260,22 @@ export default function HeavyMetalInput({
                                     updateMetal(index, e.target.value)
                                 }
 
-                                className="rounded-xl border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900 dark:bg-slate-800 px-4 py-3"
+                                className={`
+
+                                rounded-xl
+                                px-4
+                                py-3
+
+                                ${error.heavyMetals &&
+                                        row.metal === ""
+                                        ? "border-2 border-red-500"
+                                        : "border border-gray-300 dark:border-slate-600"
+                                    }
+
+                                    bg-white
+                                    dark:bg-slate-800
+
+                                `}
 
                             >
 
@@ -271,7 +317,22 @@ export default function HeavyMetalInput({
 
                                 placeholder="Concentration (mg/kg)"
 
-                                className="rounded-xl border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900 dark:bg-slate-800 px-4 py-3"
+                                className={`
+
+                                rounded-xl
+                                px-4
+                                py-3
+
+                                ${error.heavyMetals &&
+                                        row.concentration === ""
+                                        ? "border-2 border-red-500"
+                                        : "border border-gray-300 dark:border-slate-600"
+                                    }
+
+                                bg-white
+                                dark:bg-slate-800
+
+                                `}
 
                             />
 
